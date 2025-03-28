@@ -6,3 +6,18 @@
 # 2 Router + NavBar
  - Router setup using createBrowser Router
  - functionality using Link for signup and login is created in NavBar  
+
+# 3 Sign & Login 
+- authentication done using frontend
+- with changeEventHandler and changeFileHandler and submitHandler
+- i used useState in ({1:"",2:""}) this way 
+- and created form data and in changeEventHandler  setInput({...input,})
+- created formData and headers:()
+- # FormData 
+  - FormData is a built-in JavaScript object that allows you to construct and send key-value pairs, including files, to a server using multipart/form-data.
+  # headers()
+  - When submitting a form that includes files (like images, PDFs, or videos), a normal application/json or application/x-www-form-urlencoded request cannot handle file uploads. multipart/form-data allows sending both text fields and files as separate parts within the same request.
+
+- login signup done using api and multer integrated in backend for uploading profile picture 
+- because without it it was showing error and data was not being shared to the backend 
+thats why multer is added
