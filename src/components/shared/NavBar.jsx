@@ -1,5 +1,6 @@
-import { Link, LogOut, User2 } from 'lucide-react'
+import { LogOut, User2 } from 'lucide-react'
 import React from 'react'
+import { Link } from 'react-router'
 import {
     Popover,
     PopoverContent,
@@ -34,8 +35,8 @@ const NavBar = () => {
                     {
                         !user ? (
                             <div>
-                                <Button variant='outline'>Login</Button>
-                                <Button className='bg-[#6A38c2] hover:bg-[#64439d]'>SignUp</Button>
+                                <Link to='/login'><Button variant='outline'>Login</Button></Link>
+                                <Link to='/signup'><Button className='bg-[#6A38c2] hover:bg-[#64439d]'>SignUp</Button></Link>
                             </div>
                         ) : (
                             <Popover>
