@@ -7,9 +7,14 @@ import { Button } from '../ui/button'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router'
 import { toast } from 'sonner'
+import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { USER_API_END_POINT } from '../utils/constant'
+import { setLoading } from '../../redux/authSlice'
 const Signup = () => {
+    const dispatch = useDispatch()
     const naviagate = useNavigate()
+    const { loading } = useSelector((store) => store.auth)
     const [input, setInput] = useState({
         fullName: "",
         email: "",
@@ -41,7 +46,7 @@ const Signup = () => {
         }
 
         try {
-
+            dispatch(setLoading(true))
             const response = await axios.post(`${USER_API_END_POINT}/register`, formData, {
                 headers: { "Content-Type": "multipart/form-data" }, withCredentials: true
             })
@@ -55,6 +60,8 @@ const Signup = () => {
         } catch (error) {
             console.log(error);
             toast.error(error.response.data.message)
+        } finally {
+            dispatch(setLoading(false))
         }
     }
 
@@ -139,8 +146,11 @@ const Signup = () => {
                             />
                         </div>
                     </div>
-                    <Button type='submit' className='w-full my-4'>Signup</Button>
-                    <span>Already have an account ?<Link to="/login" className='text-blue-600 '> Login</Link> </span>
+
+                    {
+                        loading ? <Button className='w-full my-4'>Loading...</Button> : <Button type='submit' className='w-ful l my-4'>Signup</Button>
+
+                    }                    <span>Already have an account ?<Link to="/login" className='text-blue-600 '> Login</Link> </span>
                 </form>
 
             </div>

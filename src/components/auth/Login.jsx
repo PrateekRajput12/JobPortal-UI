@@ -8,8 +8,12 @@ import { Link, useNavigate } from 'react-router'
 import { toast } from 'sonner'
 import axios from 'axios'
 import { USER_API_END_POINT } from '../utils/constant'
+import { useDispatch, useSelector } from 'react-redux'
+import { setLoading } from '../../redux/authSlice'
 const Login = () => {
+    const dispatch = useDispatch()
     const naviagate = useNavigate()
+    const { loading } = useSelector((store) => store.auth)
     const [input, setInput] = useState({
         email: "",
         password: "",
@@ -28,7 +32,8 @@ const Login = () => {
 
 
         try {
-            const response = await axios.post(`${USER_API_END_POINT}/login`, input, {
+            dispatch(setLoading(true))
+            const response = await axios.post(`${USER_API_END_POINT}login`, input, {
                 headers: { "Content-Type": "application/json" }, withCredentials: true
             })
 
@@ -38,6 +43,8 @@ const Login = () => {
             }
         } catch (error) {
             console.log(error);
+        } finally {
+            dispatch(setLoading(false))
         }
     }
     return (
@@ -95,7 +102,11 @@ const Login = () => {
 
 
                     </div>
-                    <Button type='submit' className='w-full my-4'>Login</Button>
+
+                    {
+                        loading ? <Button className='w-full my-4'>Loading...</Button> : <Button type='submit' className='w-full my-4'>Login</Button>
+
+                    }
                     <span>Don't have an account ?<Link to="/signup" className='text-blue-600 '> Login</Link> </span>
                 </form>
 

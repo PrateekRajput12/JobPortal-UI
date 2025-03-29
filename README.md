@@ -21,3 +21,8 @@
 - login signup done using api and multer integrated in backend for uploading profile picture 
 - because without it it was showing error and data was not being shared to the backend 
 thats why multer is added
+
+# 4 Redux store
+- redux store setup 
+- authslice for loading created
+- loading is created
