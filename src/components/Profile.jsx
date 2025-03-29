@@ -12,8 +12,9 @@ import { useSelector } from 'react-redux'
 const skills = ["HTML", "CSS", "JS", "React"]
 
 const Profile = () => {
-    const isResume = false
+    const isResume = true
     const { user } = useSelector((store) => store.auth)
+    console.log(user);
     const { fullName, phoneNumber, profile, email } = user
     const [open, setOpen] = useState(false)
     return (
@@ -59,7 +60,7 @@ const Profile = () => {
                     <div className='grid w-full max-w-sm items-center gap-1.5'>
                         <Label className='text-md font-bold'>Resume</Label>
                         {
-                            isResume ? <a target='_blank' href='' className='text-blue-500 w-full hover:underline cursor-pointer'>Prateek Rajput</a> : <span>Not applicable</span>
+                            profile.resume ? <a target='_blank' href={profile.resume} className='text-blue-500 w-full hover:underline cursor-pointer'>{profile.resumeOriginalName}</a> : <span>Not applicable</span>
                         }
                     </div>
 

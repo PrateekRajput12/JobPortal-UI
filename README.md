@@ -44,3 +44,8 @@ thats why multer is added
  - Created 
  - dynamic content and storing ipdated data in store created
  - for resume next step is to build cloudinary
+
+# 9 Cloudinary Setup
+- working finr uploading document on cloudinary but 
+- not showing showing that failed to load 
+- i will check it tommorrow
