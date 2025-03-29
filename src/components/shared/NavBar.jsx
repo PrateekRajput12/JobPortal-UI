@@ -14,8 +14,11 @@ import {
     AvatarFallback,
     AvatarImage,
 } from "../ui/avatar"
+import { useSelector } from 'react-redux'
 const NavBar = () => {
-    const user = false
+    const { user } = useSelector((store) => store.auth)
+    console.log(user);
+    // const user = false
     return (
         <div>
             <div className='bg-white font-bold mx-auto text-black flex justify-between items-center max-w-7xl h-16'>
@@ -61,7 +64,7 @@ const NavBar = () => {
                                     <div className='flex my-2 flex-col gap-3  text-gray-600 '>
                                         <div className='flex w-fit items-center gap-2 cursor-pointer '>
                                             <User2 />
-                                            <Button variant="link" className='self-start' > View Profile</Button>
+                                            <Button variant="link" className='self-start' ><Link to='/profile'> View Profile</Link></Button>
                                         </div>
                                         <div className='flex w-fit items-center gap-2 cursor-pointer '>
                                             <LogOut />

@@ -31,3 +31,8 @@ thats why multer is added
 - all these component created
 - with normal css 
 - and dynamic raw data
+
+# 6 User Store created
+ - User Store in auth store created
+ - Profile , Applied Job Page Created
+ - NavBar fetching User using useSelector done

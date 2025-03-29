@@ -9,7 +9,7 @@ import { toast } from 'sonner'
 import axios from 'axios'
 import { USER_API_END_POINT } from '../utils/constant'
 import { useDispatch, useSelector } from 'react-redux'
-import { setLoading } from '../../redux/authSlice'
+import { setLoading, SetUser } from '../../redux/authSlice'
 const Login = () => {
     const dispatch = useDispatch()
     const naviagate = useNavigate()
@@ -36,8 +36,10 @@ const Login = () => {
             const response = await axios.post(`${USER_API_END_POINT}login`, input, {
                 headers: { "Content-Type": "application/json" }, withCredentials: true
             })
+            console.log(response.data);
 
             if (response.data.success) {
+                dispatch(SetUser(response?.data?.user))
                 naviagate('/')
                 toast.success(response.data.message)
             }
