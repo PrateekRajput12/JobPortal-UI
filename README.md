@@ -26,3 +26,8 @@ thats why multer is added
 - redux store setup 
 - authslice for loading created
 - loading is created
+
+# 5 Browse ,Filter Card,Job 
+- all these component created
+- with normal css 
+- and dynamic raw data
