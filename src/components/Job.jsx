@@ -3,7 +3,10 @@ import React from 'react'
 import { Button } from './ui/button'
 import { Avatar, AvatarImage } from '@radix-ui/react-avatar'
 import { Badge } from './ui/badge'
+import { useNavigate } from 'react-router'
 const Job = () => {
+    const navigate = useNavigate()
+    const jobId = "kjsnkns939939"
     return (
         <div className='p-5 rounded-md shadow-xl  bg-white border max-w-[350px] border-gray-100'>
             <div className='flex items-center justify-between'>
@@ -33,7 +36,7 @@ const Job = () => {
 
             </div>
             <div className='flex items-center gap-3 mt-4'>
-                <Button variant='outline'>
+                <Button variant='outline' onClick={() => navigate(`/description/${jobId}`)}>
                     Details
                 </Button>
                 <Button className='bg-[#7209b7] text-white font-bold' variant='outline'>Save For Letter</Button>

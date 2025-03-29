@@ -36,3 +36,11 @@ thats why multer is added
  - User Store in auth store created
  - Profile , Applied Job Page Created
  - NavBar fetching User using useSelector done
+
+# 7 Job Description Created
+- Job Description Created 
+
+# 8 Profile Edit 
+ - Created 
+ - dynamic content and storing ipdated data in store created
+ - for resume next step is to build cloudinary
