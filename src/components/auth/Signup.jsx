@@ -11,9 +11,9 @@ import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { USER_API_END_POINT } from '../utils/constant'
 import { setLoading } from '../../redux/authSlice'
+import { Loader2 } from 'lucide-react'
 const Signup = () => {
-    const dispatch = useDispatch()
-    const naviagate = useNavigate()
+
     const { loading } = useSelector((store) => store.auth)
     const [input, setInput] = useState({
         fullName: "",
@@ -23,13 +23,16 @@ const Signup = () => {
         role: "",
         file: ""
     })
+    const dispatch = useDispatch()
+    const naviagate = useNavigate()
 
     const changeEventHandler = (e) => {
         setInput({ ...input, [e.target.name]: e.target.value })
     }
 
     const changeFileHandler = (e) => {
-        setInput({ ...input, file: e.target.file?.[0] })
+        const file = e.target.files?.[0]
+        setInput({ ...input, file })
     }
 
     const submitHandler = async (e) => {
@@ -46,8 +49,9 @@ const Signup = () => {
         }
 
         try {
+            console.log("Selected File:", input);
             dispatch(setLoading(true))
-            const response = await axios.post(`${USER_API_END_POINT}/register`, formData, {
+            const response = await axios.post(`${USER_API_END_POINT}register`, formData, {
                 headers: { "Content-Type": "multipart/form-data" }, withCredentials: true
             })
             console.log(response);
@@ -148,7 +152,7 @@ const Signup = () => {
                     </div>
 
                     {
-                        loading ? <Button className='w-full my-4'>Loading...</Button> : <Button type='submit' className='w-ful l my-4'>Signup</Button>
+                        loading ? <Button className='w-full my-4'><Loader2 /></Button> : <Button type='submit' className='w-ful l my-4'>Signup</Button>
 
                     }                    <span>Already have an account ?<Link to="/login" className='text-blue-600 '> Login</Link> </span>
                 </form>

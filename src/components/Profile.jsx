@@ -9,7 +9,7 @@ import AppliedJobTable from './AppliedJobTable'
 import UpdateProfileDialog from './UpdateProfileDialog'
 import { useSelector } from 'react-redux'
 
-const skills = ["HTML", "CSS", "JS", "React"]
+// const skills = ["HTML", "CSS", "JS", "React"]
 
 const Profile = () => {
     const isResume = true
@@ -28,7 +28,7 @@ const Profile = () => {
                     <div className='flex items-center gap-4'>
 
                         <Avatar className='h-24 w-24' >
-                            <AvatarImage className='rounded-full' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmaPiU5rEd9zpNUMgWe8X8qm34BzbjW92-wg&s' alt='profile' />
+                            <AvatarImage className='rounded-full' src={profile.profilePhoto} alt='profile' />
                         </Avatar>
 
                         <div>  <h1 className='font-medium text-xl'>{fullName}</h1>

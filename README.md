@@ -42,7 +42,7 @@ thats why multer is added
 
 # 8 Profile Edit 
  - Created 
- - dynamic content and storing ipdated data in store created
+ - dynamic content and storing ipdated data in store createdwwwwwww
  - for resume next step is to build cloudinary
 
 # 9 Cloudinary Setup
@@ -55,3 +55,4 @@ thats why multer is added
 - Logout created succesfully 
 - and cleared user store after logout api called 
 using dispatch(setUser(null))
+- profile images show integrated
