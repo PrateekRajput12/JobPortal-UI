@@ -46,6 +46,12 @@ thats why multer is added
  - for resume next step is to build cloudinary
 
 # 9 Cloudinary Setup
-- working finr uploading document on cloudinary but 
+- working file uploading document on cloudinary but 
 - not showing showing that failed to load 
 - i will check it tommorrow
+
+
+# 10 Logout
+- Logout created succesfully 
+- and cleared user store after logout api called 
+using dispatch(setUser(null))
