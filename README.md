@@ -56,3 +56,10 @@ thats why multer is added
 - and cleared user store after logout api called 
 using dispatch(setUser(null))
 - profile images show integrated
+
+# 11 GETALLJOBS 
+- getAll jobs hook created yo fetch jobs
+- then we used this function at homepage 
+- then for fetching data on latest job page 
+- we used selector 
+- jobSlice is also created 
