@@ -68,3 +68,6 @@ using dispatch(setUser(null))
 - created and fetched data 
 - created description page 
 - added days ago 
+
+# 13 isApplied Button
+- isApplied Button is created 

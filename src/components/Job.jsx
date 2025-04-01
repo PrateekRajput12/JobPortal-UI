@@ -8,6 +8,7 @@ const Job = ({ job }) => {
     const { title, description, company, requirements, position, salary, jobType, experienceLevel, location, applications, createdAt } = job
     const navigate = useNavigate()
     const jobId = job._id
+    console.log(jobId);
 
     const daysAgo = (mongodbTime) => {
         const createdAt = new Date(mongodbTime)
