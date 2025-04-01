@@ -63,3 +63,8 @@ using dispatch(setUser(null))
 - then for fetching data on latest job page 
 - we used selector 
 - jobSlice is also created 
+
+# 12 GET SINGLE JOB
+- created and fetched data 
+- created description page 
+- added days ago 

@@ -19,7 +19,7 @@ const useGetAllJob = () => {
             }
         }
         fetchAllJobs()
-    })
+    }, [])
 }
 
 export default useGetAllJob
