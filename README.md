@@ -84,3 +84,7 @@ using dispatch(setUser(null))
 
 # 16 Create Company && company Setup and COmpany Slice
 - all of thses things created
+
+# 17 Get All Companies && Get COmpanies by id
+- DOne
+- and search filter added
