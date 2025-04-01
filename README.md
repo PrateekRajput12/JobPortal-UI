@@ -80,3 +80,7 @@ using dispatch(setUser(null))
 # 15 Admin navBar 
 - navbar for admin is created 
 - profile show for admin as required is removed
+
+
+# 16 Create Company && company Setup and COmpany Slice
+- all of thses things created

@@ -45,8 +45,8 @@ const NavBar = () => {
         <div>
             <div className='bg-white font-bold mx-auto text-black flex justify-between items-center max-w-7xl h-16'>
                 <div>
-                    <h1 className='text-2xl font-bold text-black'>Job<span className=' text-red-600'>Portal</span></h1>
-
+                    <Link to='/'>                    <h1 className='text-2xl font-bold text-black'>Job<span className=' text-red-600'>Portal</span></h1>
+                    </Link>
                 </div>
 
                 <div className='flex items-center justify-between gap-12'>
