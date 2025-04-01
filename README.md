@@ -91,3 +91,7 @@ using dispatch(setUser(null))
 
 # 18 Allmost all companies work done
 - working on job at next
+
+# 19 Admin Jobs
+- fetch admin jobs 
+- search Jobs By role and name Done ✅
