@@ -10,9 +10,13 @@ import { COMPANY_API_END_POINT } from '../utils/constant'
 import { useNavigate, useParams } from 'react-router'
 import { toast } from 'sonner'
 import { useDispatch, useSelector } from 'react-redux'
+import useGetCompanyById from '../../hooks/useGetCompanyById'
 
 const CompanySetup = () => {
+    const params = useParams()
+
     const naviagate = useNavigate()
+    useGetCompanyById(params.id)
     // const dispatch = useDispatch()
     const [input, setInput] = useState({
         name: "",
@@ -32,7 +36,6 @@ const CompanySetup = () => {
         setInput({ ...input, file })
     }
 
-    const params = useParams()
 
 
     const submitHandler = async (e) => {

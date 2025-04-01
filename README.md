@@ -88,3 +88,6 @@ using dispatch(setUser(null))
 # 17 Get All Companies && Get COmpanies by id
 - DOne
 - and search filter added
+
+# 18 Allmost all companies work done
+- working on job at next
