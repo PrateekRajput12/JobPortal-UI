@@ -76,3 +76,7 @@ using dispatch(setUser(null))
 # 14 isApplied Button + Persist Store
 - store is persisted 
 - isApplied done using some()
+
+# 15 Admin navBar 
+- navbar for admin is created 
+- profile show for admin as required is removed
