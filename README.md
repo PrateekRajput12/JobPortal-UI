@@ -71,3 +71,8 @@ using dispatch(setUser(null))
 
 # 13 isApplied Button
 - isApplied Button is created 
+
+
+# 14 isApplied Button + Persist Store
+- store is persisted 
+- isApplied done using some()
