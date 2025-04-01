@@ -95,3 +95,8 @@ using dispatch(setUser(null))
 # 19 Admin Jobs
 - fetch admin jobs 
 - search Jobs By role and name Done ✅
+
+# 20 Post Jobs
+- post jobs created 
+- applied job button fixed
+- admin jobs table created

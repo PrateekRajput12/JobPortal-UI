@@ -26,11 +26,11 @@ const Job = ({ job }) => {
             <div className='flex items-center gap-2 my-2'>
                 <Button variant='outline ' className='' size='icon'>
                     <Avatar>
-                        <AvatarImage className='rounded-full' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmaPiU5rEd9zpNUMgWe8X8qm34BzbjW92-wg&s' alt='logo' />
+                        <AvatarImage className='rounded-full' src={job?.company?.logo} alt='logo' />
                     </Avatar>
                 </Button>
                 <div>
-                    <h1 className='font-medium text-lg'>{company.name}</h1>
+                    <h1 className='font-medium text-lg'>{company?.name}</h1>
                     <p className='text-sm text-gray-500'>{location}</p>
                 </div>
             </div>
