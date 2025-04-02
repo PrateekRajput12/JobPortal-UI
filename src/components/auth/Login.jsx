@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import NavBar from '../shared/NavBar'
 import { Label } from '../ui/label'
 import { Input } from '../ui/input'
@@ -13,7 +13,7 @@ import { setLoading, SetUser } from '../../redux/authSlice'
 const Login = () => {
     const dispatch = useDispatch()
     const naviagate = useNavigate()
-    const { loading } = useSelector((store) => store.auth)
+    const { loading, user } = useSelector((store) => store.auth)
     const [input, setInput] = useState({
         email: "",
         password: "",
@@ -49,6 +49,13 @@ const Login = () => {
             dispatch(setLoading(false))
         }
     }
+
+    useEffect(() => {
+        if (user) {
+            naviagate('/')
+        }
+    }, [])
+
     return (
         <div>
             <NavBar />

@@ -114,3 +114,7 @@ using dispatch(setUser(null))
 
 # 24 Applied Job 
 - accept or reject done 
+
+# 25 Project Completed
+- Done Protected Route used 
+- signup login protected 
