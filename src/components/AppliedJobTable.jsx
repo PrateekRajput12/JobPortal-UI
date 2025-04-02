@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux'
 const AppliedJobTable = () => {
 
     const { allAppliedJobs } = useSelector((store) => store.job)
-    console.log("applid toj table", allAppliedJobs);
     return (
         <div>
             <Table>

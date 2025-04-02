@@ -32,7 +32,6 @@ const PostJob = () => {
         companyId: ""
     })
     const { companies } = useSelector(store => store.company)
-    console.log(companies);
     const changeEventHandler = (e) => {
         setInput({ ...input, [e.target.name]: e.target.value })
     }
@@ -44,7 +43,6 @@ const PostJob = () => {
     const [loading, setLoading] = useState(false)
     const submitHandler = async (e) => {
         e.preventDefault()
-        console.log(input);
         try {
             setLoading(true)
             const res = await axios.post(`${JOB_API_END_POINIT}/post`, input, {

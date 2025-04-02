@@ -26,10 +26,10 @@ const AdminJobs = () => {
                     <Input
                         className='w-fit'
                         placeholder="Filter By Name & Role"
-                        value={input}
-                        onChange={(e) => setInput(e.target.value)}
+                        // value={input}
+                        onChange={(e) => setInput(e?.target?.value)}
                     />
-                    <Button onClick={() => navigate('/admin/companies/create')} >New Jobs</Button>
+                    <Button onClick={() => navigate('/admin/jobs/create')} >New Jobs</Button>
                 </div>
                 <AdminJobsTable />
 

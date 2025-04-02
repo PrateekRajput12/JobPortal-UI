@@ -37,7 +37,6 @@ const Signup = () => {
 
     const submitHandler = async (e) => {
         e.preventDefault()
-        console.log('clicked');
         const formData = new FormData()
         formData.append("fullName", input.fullName)
         formData.append("email", input.email)
@@ -49,14 +48,11 @@ const Signup = () => {
         }
 
         try {
-            console.log("Selected File:", input);
             dispatch(setLoading(true))
             const response = await axios.post(`${USER_API_END_POINT}register`, formData, {
                 headers: { "Content-Type": "multipart/form-data" }, withCredentials: true
             })
-            console.log(response);
 
-            console.log('here');
             if (response.data.success) {
                 naviagate('/login')
                 toast.success(response.data.message)
@@ -157,9 +153,10 @@ const Signup = () => {
                     </div>
 
                     {
-                        loading ? <Button className='w-full my-4'><Loader2 /></Button> : <Button type='submit' className='w-ful l my-4'>Signup</Button>
+                        loading ? <Button className='w-full my-4'><Loader2 /></Button> : <Button type='submit' className='w-full my-4'>Signup</Button>
 
-                    }                    <span>Already have an account ?<Link to="/login" className='text-blue-600 '> Login</Link> </span>
+                    }
+                    <span>Already have an account ?<Link to="/login" className='text-blue-600 '> Login</Link> </span>
                 </form>
 
             </div>

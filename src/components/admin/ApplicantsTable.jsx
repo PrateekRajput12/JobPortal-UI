@@ -14,10 +14,8 @@ const ApplicantsTable = () => {
     // const dispatch = useDispatch()
     const statusHandler = async (status, id) => {
         try {
-            console.log(status);
             axios.defaults.withCredentials = true
             const res = await axios.post(`${APPLICATION_API_END_POINT}/status/${id}/update`, { status }, { withCredentials: true })
-            console.log(res);
             if (res.data.success) {
                 toast.success(res.data.message)
                 // dispatch(removeApplicant(id))

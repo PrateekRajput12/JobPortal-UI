@@ -18,7 +18,6 @@ const Profile = () => {
 
     const isResume = true
     const { user } = useSelector((store) => store.auth)
-    console.log(user);
     const { fullName, phoneNumber, profile, email } = user
     const [open, setOpen] = useState(false)
     return (

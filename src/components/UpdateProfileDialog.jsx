@@ -53,12 +53,9 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
                 },
                 withCredentials: true
             })
-            console.log(res.data?.success);
             if (res?.data?.success) {
-                console.log('hrer-2');
                 dispatch(SetUser(res?.data?.user))
                 toast.success(res.data.message)
-                console.log('here');
             }
         } catch (error) {
             console.log(error);
@@ -67,7 +64,6 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
             setLoading(false)
         }
         setOpen(false)
-        console.log(input);
     }
     return (
         <div>

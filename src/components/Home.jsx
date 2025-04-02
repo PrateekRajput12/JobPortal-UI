@@ -11,10 +11,10 @@ import { useNavigate } from 'react-router'
 const Home = () => {
     useGetAllJob()
 
-    const { user } = useSelector(store => store.auth)
+    const { user } = useSelector(store => store?.auth)
     const navigate = useNavigate()
     useEffect(() => {
-        if (user.role === "recruiter") {
+        if (user?.role === "recruiter") {
             navigate("/admin/companies")
         }
 

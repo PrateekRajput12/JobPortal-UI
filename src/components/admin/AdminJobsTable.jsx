@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router'
 
 const AdminJobsTable = () => {
     // const { companies, searchCompanyByText } = useSelector((store) => store.company)
-    const { allAdminJobs, searchJobByText } = useSelector(store => store.job)
+    const { allAdminJobs, searchJobByText } = useSelector((store) => store?.job)
     const [filterJobs, setFilterJobs] = useState(allAdminJobs)
     const navigate = useNavigate()
     useEffect(() => {
@@ -20,6 +20,7 @@ const AdminJobsTable = () => {
         })
         setFilterJobs(filteredJob)
     }, [allAdminJobs, searchJobByText])
+    console.log(filterJobs);
     return (
         <div>
             <Table>
@@ -33,14 +34,14 @@ const AdminJobsTable = () => {
                     </TableRow>
                 </thead>
                 <TableBody>
-                    {allAdminJobs?.length === 0 ? (
+                    {filterJobs?.length === 0 ? (
                         <TableRow>
                             <TableCell colSpan="4" className="text-center">
                                 No companies available
                             </TableCell>
                         </TableRow>
                     ) : (
-                        allAdminJobs?.map((job) => (
+                        filterJobs?.map((job) => (
                             <TableRow key={job._id}>
                                 <TableCell>{job?.company?.name}</TableCell>
                                 <TableCell>{job?.title}</TableCell>
@@ -52,7 +53,7 @@ const AdminJobsTable = () => {
                                         </PopoverTrigger>
                                         <PopoverContent className="w-38 p-3  bg-gray-400 font-bold text-md rounded-3xl">
                                             <div
-                                                onClick={() => navigate(`/admin/companies/${job._id}`)}
+                                                onClick={() => navigate(`/admin/companies/${job?.company?._id}`)}
                                                 className="flex items-center gap-2 w-fit cursor-pointer"
                                             >
                                                 <Edit2 className="w-4" />

@@ -18,10 +18,8 @@ const Applicants = () => {
         const fetchAllApplicants = async () => {
 
             try {
-                console.log("yah");
                 const res = await axios.get(`${APPLICATION_API_END_POINT}/${params?.id}/applicants`, { withCredentials: true })
 
-                console.log("applicants", res.data);
                 if (res.data.success) {
                     toast.success(res.data.message)
                     dispatch(setAllApplicants(res?.data?.job))

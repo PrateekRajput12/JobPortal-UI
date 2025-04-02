@@ -20,7 +20,6 @@ const CompanyCreate = () => {
                 headers: { 'Content-Type': 'application/json' },
                 withCredentials: true
             })
-            console.log(res.data);
             if (res.data.success) {
                 toast.success(res.data.message)
                 dispatch(setSingleCompany(res?.data?.company))

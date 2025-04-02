@@ -28,7 +28,6 @@ const CompanySetup = () => {
     const { singleCompany } = useSelector(store => store.company)
     const [loading, setLoading] = useState(false)
     const changeEventHandler = (e) => {
-        console.log(e.target.value);
         setInput({ ...input, [e?.target?.name]: e?.target?.value })
     }
     const changeFileHandler = (e) => {
@@ -51,14 +50,12 @@ const CompanySetup = () => {
 
 
         try {
-            setLoading(true)
             console.log(input);
+            setLoading(true)
             const res = await axios.put(`${COMPANY_API_END_POINT}/update/${params.id}`, formData, {
                 headers: { "Content-Type": "multipart/form-data" }, withCredentials: true
             })
-            console.log("res", res);
 
-            console.log(res.data);
             if (res.data.success) {
                 toast.success(res.data.message)
                 // dispatch()

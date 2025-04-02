@@ -20,19 +20,17 @@ import { toast } from 'sonner'
 import { USER_API_END_POINT } from '../utils/constant'
 import { SetUser } from '../../redux/authSlice'
 const NavBar = () => {
-    const { user } = useSelector((store) => store.auth)
+    const { user } = useSelector((store) => store?.auth)
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    console.log(user);
     // const user = false
 
     const logoutHandler = async () => {
         try {
             const response = await axios.get(`${USER_API_END_POINT}logout`, { withCredentials: true })
-            console.log(response);
             if (response.data.success) {
                 dispatch(SetUser(null))
-                toast.success(response.data.message)
+                toast.success(response?.data?.message)
                 navigate("/login")
 
             }
@@ -45,14 +43,14 @@ const NavBar = () => {
         <div>
             <div className='bg-white font-bold mx-auto text-black flex justify-between items-center max-w-7xl h-16'>
                 <div>
-                    <Link to='/'>                    <h1 className='text-2xl font-bold text-black'>Job<span className=' text-red-600'>Portal</span></h1>
-                    </Link>
+                    <h1 className='text-2xl font-bold text-black'>Job<span className=' text-red-600'>Portal</span></h1>
+
                 </div>
 
                 <div className='flex items-center justify-between gap-12'>
                     <ul className='flex items-center gap-5'>
                         {
-                            user && user.role === "recruiter" ? (
+                            user && user?.role === "recruiter" ? (
                                 <>
 
                                     <li><Link to='/admin/companies'>Companies</Link></li>
@@ -80,7 +78,7 @@ const NavBar = () => {
                             <Popover>
                                 <PopoverTrigger asChild>
                                     <Avatar className='cursor-pointer'>
-                                        <AvatarImage src={user.profile.profilePhoto} alt="@shadcn" />
+                                        <AvatarImage src={user.profile.profilePhoto ? user.profile.profilePhoto : "https://github.com/shadcn.png"} alt="@shadcn" />
                                         {/* <AvatarFallback>CN</AvatarFallback> */}
                                     </Avatar>
                                 </PopoverTrigger>
@@ -98,7 +96,7 @@ const NavBar = () => {
                                     </div>
                                     <div className='flex my-2 flex-col gap-3  text-gray-600 '>
                                         {
-                                            user && user.role === "student" && (
+                                            user && user?.role === "student" && (
                                                 <div className='flex w-fit items-center gap-2 cursor-pointer '>
                                                     <User2 />
                                                     <Button variant="link" className='self-start' ><Link to='/profile'> View Profile</Link></Button>

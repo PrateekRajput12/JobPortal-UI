@@ -42,7 +42,7 @@ const CompaniesTable = () => {
                 <TableBody>
 
                     {
-                        companies?.length <= 0 ? <span>No companies available</span> :
+                        filterCompany?.length <= 0 ? <span>No companies available</span> :
                             (
                                 <>
                                     {

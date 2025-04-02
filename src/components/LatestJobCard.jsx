@@ -3,7 +3,6 @@ import { Badge } from './ui/badge'
 import { Description } from '@radix-ui/react-dialog';
 import { useNavigate } from 'react-router';
 const LatestJobCard = ({ job }) => {
-    console.log("here", job);
     const navigate = useNavigate()
     const { title, company, description, requirements, salary, experienceLevel, location, jobType, position, applications } = job
     return (

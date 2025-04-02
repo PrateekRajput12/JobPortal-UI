@@ -36,7 +36,6 @@ const Login = () => {
             const response = await axios.post(`${USER_API_END_POINT}login`, input, {
                 headers: { "Content-Type": "application/json" }, withCredentials: true
             })
-            console.log(response.data);
 
             if (response.data.success) {
                 dispatch(SetUser(response?.data?.user))
@@ -93,7 +92,7 @@ const Login = () => {
                             <div className="flex items-center space-x-2">
                                 <Input
                                     type='radio' name="role" value="student" className='cursor-pointer'
-                                    checked={input.role === "student"}
+                                    checked={input?.role === "student"}
                                     onChange={changeEventHandler}
                                 />
                                 <Label htmlFor="r1">Student</Label>
@@ -101,7 +100,7 @@ const Login = () => {
                             <div className="flex items-center space-x-2">
                                 <Input
                                     type='radio' name="role" value="recruiter" className='cursor-pointer'
-                                    checked={input.role === "recruiter"}
+                                    checked={input?.role === "recruiter"}
                                     onChange={changeEventHandler}
                                 />
                                 <Label htmlFor="r2">Recruiter</Label>
@@ -116,7 +115,7 @@ const Login = () => {
                         loading ? <Button className='w-full my-4'>Loading...</Button> : <Button type='submit' className='w-full my-4'>Login</Button>
 
                     }
-                    <span>Don't have an account ?<Link to="/signup" className='text-blue-600 '> Login</Link> </span>
+                    <span>Don't have an account ?<Link to="/signup" className='text-blue-600 '> Signup</Link> </span>
                 </form>
 
             </div>

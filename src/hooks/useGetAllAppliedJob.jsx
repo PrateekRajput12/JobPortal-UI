@@ -12,7 +12,6 @@ const useGetAllAppliedJob = () => {
         const fetchAppliedjobs = async () => {
             try {
                 const res = await axios.get(`${APPLICATION_API_END_POINT}/get`, { withCredentials: true })
-                console.log("applied", res.data);
                 if (res.data.success) {
                     toast.success(res.data.message)
                     dispatch(setAllAppliedJobs(res?.data?.application))
