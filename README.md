@@ -106,3 +106,11 @@ using dispatch(setUser(null))
 - all applicants fetched
 
 
+# 22 Browse Job Feature 
+- done
+
+# 23 filter
+- done
+
+# 24 Applied Job 
+- accept or reject done 

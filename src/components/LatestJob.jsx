@@ -2,12 +2,14 @@ import React from 'react'
 import LatestJobCard from './LatestJobCard'
 // import useGetAllJob from '../hooks/useGetAllJob'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router'
 
 const randomJob = [1, 2, 3, 4, 5, 6, 7, 8]
 const LatestJob = () => {
 
     const { allJobs } = useSelector((store) => store.job)
     console.log(allJobs);
+    const navigate = useNavigate()
     // console.log("all jobs", allJobs);
     return (
         <div className='max-w-7xl mx-auto my-20'>

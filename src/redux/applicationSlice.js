@@ -8,7 +8,10 @@ const applicationSlice = createSlice({
     reducers: {
         setAllApplicants: (state, action) => {
             state.applicants = action.payload
-        }
+        },
+        // removeApplicant: (state, action) => {
+        //     state.applicants = state.applicants.filter(applicant => applicant.id !== action.payload);
+        // }
     }
 })
 

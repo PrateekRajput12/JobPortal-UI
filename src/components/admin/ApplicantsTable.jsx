@@ -3,10 +3,31 @@ import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, Tabl
 import { Popover, PopoverContent, PopoverTrigger } from '@radix-ui/react-popover'
 import { MoreHorizontal } from 'lucide-react'
 import { useSelector } from 'react-redux'
+import axios from 'axios'
+import { APPLICATION_API_END_POINT } from '../utils/constant'
+import { toast } from 'sonner'
+// import { removeApplicant } from '../../redux/applicationSlice'
 const shortListingStatus = ["Accepted", "Rejected"]
 const ApplicantsTable = () => {
 
-    const { applicants } = useSelector(store => store.application)
+    const { applicants } = useSelector(store => store?.application)
+    // const dispatch = useDispatch()
+    const statusHandler = async (status, id) => {
+        try {
+            console.log(status);
+            axios.defaults.withCredentials = true
+            const res = await axios.post(`${APPLICATION_API_END_POINT}/status/${id}/update`, { status }, { withCredentials: true })
+            console.log(res);
+            if (res.data.success) {
+                toast.success(res.data.message)
+                // dispatch(removeApplicant(id))
+            }
+        } catch (error) {
+            console.log(error);
+            toast.error(error.response.data.message)
+        }
+    }
+
 
     return (
         <div>
@@ -49,7 +70,7 @@ const ApplicantsTable = () => {
                                                 {
                                                     shortListingStatus.map((status, index) => {
                                                         return (
-                                                            <div key={index} className='flex w-fit items-center my-2 cursor-pointer'>
+                                                            <div onClick={() => statusHandler(status, item?._id)} key={index} className='flex w-fit items-center my-2 cursor-pointer'>
                                                                 <span>{status}</span>
                                                             </div>
                                                         )
