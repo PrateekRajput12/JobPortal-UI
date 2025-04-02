@@ -100,3 +100,9 @@ using dispatch(setUser(null))
 - post jobs created 
 - applied job button fixed
 - admin jobs table created
+
+# 21 Applicants
+- applicants table created
+- all applicants fetched
+
+
