@@ -10,80 +10,67 @@ const CompaniesTable = () => {
     const { companies, searchCompanyByText } = useSelector((store) => store.company)
     const [filterCompany, setFilterCompany] = useState(companies)
     const navigate = useNavigate()
+
     useEffect(() => {
-        const filteredCompany = companies?.length >= 0 && companies?.filter((company) => {
-            if (!searchCompanyByText) {
-                return true
-            }
-            return company?.name?.toLowerCase()?.includes(searchCompanyByText?.toLowerCase())
-        })
+        const filteredCompany =
+            companies?.length >= 0 &&
+            companies?.filter((company) => {
+                if (!searchCompanyByText) return true
+                return company?.name?.toLowerCase()?.includes(searchCompanyByText.toLowerCase())
+            })
         setFilterCompany(filteredCompany)
     }, [companies, searchCompanyByText])
+
     return (
         <div>
             <Table>
-                <TableCaption>
-                    A List of your registered companies
-                </TableCaption>
-                <TableRow>
-                    <TableHead>
-                        Logo
-                    </TableHead>
-                    <TableHead>
-                        Name
-                    </TableHead>
-                    <TableHead>
-                        Date
-                    </TableHead>
-                    <TableHead className='text-right'>
-                        Action
-                    </TableHead>
-                </TableRow>
+                <TableCaption>A List of your registered companies</TableCaption>
+                <thead>
+                    <TableRow>
+                        <TableHead>Logo</TableHead>
+                        <TableHead>Name</TableHead>
+                        <TableHead>Date</TableHead>
+                        <TableHead className="text-right">Action</TableHead>
+                    </TableRow>
+                </thead>
                 <TableBody>
-
-                    {
-                        filterCompany?.length <= 0 ? <span>No companies available</span> :
-                            (
-                                <>
-                                    {
-                                        filterCompany?.map((company) => {
-                                            return (
-                                                <div key={company._id}>
-                                                    <TableCell>
-                                                        <Avatar>
-                                                            <Avatar>
-                                                                <AvatarImage className='rounded-full w-8' src={company.logo} alt='logo' />
-                                                            </Avatar>
-                                                        </Avatar>
-                                                    </TableCell>
-                                                    <TableCell>{company.name}</TableCell>
-                                                    <TableCell>{company.createdAt.split("T")[0]}</TableCell>
-                                                    <TableCell className='text-right  cursor-pointer'>
-                                                        <Popover>
-                                                            <PopoverTrigger><MoreHorizontal></MoreHorizontal></PopoverTrigger>
-                                                            <PopoverContent className='w-32'>
-                                                                <div onClick={() => navigate(`/admin/companies/${company._id}`)} className='flex items-center gap-2 w-fit cursor-pointer'>
-                                                                    <Edit2 className='w-4'>
-
-                                                                    </Edit2>
-                                                                    <span>Edit</span>
-                                                                </div>
-                                                            </PopoverContent>
-                                                        </Popover>
-                                                    </TableCell>
-                                                </div>
-                                            )
-                                        })
-                                    }
-
-
-                                </>
-                            )
-                    }
-
+                    {filterCompany?.length === 0 ? (
+                        <TableRow>
+                            <TableCell colSpan="4" className="text-center">
+                                No companies available
+                            </TableCell>
+                        </TableRow>
+                    ) : (
+                        filterCompany.map((company) => (
+                            <TableRow key={company._id}>
+                                <TableCell>
+                                    <Avatar>
+                                        <AvatarImage className="rounded-full w-8" src={company?.logo} alt="logo" />
+                                    </Avatar>
+                                </TableCell>
+                                <TableCell>{company.name}</TableCell>
+                                <TableCell>{company.createdAt?.split("T")[0]}</TableCell>
+                                <TableCell className="text-right cursor-pointer">
+                                    <Popover>
+                                        <PopoverTrigger>
+                                            <MoreHorizontal />
+                                        </PopoverTrigger>
+                                        <PopoverContent className="w-32">
+                                            <div
+                                                onClick={() => navigate(`/admin/companies/${company._id}`)}
+                                                className="flex items-center gap-2 w-fit cursor-pointer"
+                                            >
+                                                <Edit2 className="w-4" />
+                                                <span>Edit</span>
+                                            </div>
+                                        </PopoverContent>
+                                    </Popover>
+                                </TableCell>
+                            </TableRow>
+                        ))
+                    )}
                 </TableBody>
             </Table>
-
         </div>
     )
 }
